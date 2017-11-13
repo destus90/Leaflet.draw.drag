@@ -116,6 +116,7 @@ L.Edit.Rectangle.include( /** @lends L.Edit.Rectangle.prototype */ {
     this._updateMoveMarker();
 
     this._repositionCornerMarkers();
+	this._shape._map.fire(L.Draw.Event.EDITMOVE, { layer: this._shape });
     this._fireEdit();
   }
 });
