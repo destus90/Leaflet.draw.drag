@@ -115,7 +115,12 @@ L.Edit.Rectangle.include( /** @lends L.Edit.Rectangle.prototype */ {
     this._shape._map.addLayer(this._markerGroup);
     this._updateMoveMarker();
 
-    this._repositionCornerMarkers();
+    var corners = this._getCorners();
+    for (var i = 0, l = this._resizeMarkers.length; i < l; i++) {
+      // don't call setLatLng so that we don't fire an unnecessary 'move' event
+      this._resizeMarkers[i]._latlng = corners[i];
+      this._resizeMarkers[i].update();
+    }
 	this._shape._map.fire(L.Draw.Event.EDITMOVE, { layer: this._shape });
     this._fireEdit();
   }

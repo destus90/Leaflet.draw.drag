@@ -132,7 +132,8 @@ L.Edit.PolyVerticesEdit.include( /** @lends L.Edit.PolyVerticesEdit.prototype */
       for (var i = 0, len = latlngs[j].length; i < len; i++) {
         // update marker
         var marker = this._markers[i];
-        marker.setLatLng(latlngs[j][i]);
+        marker._latlng = latlngs[j][i]
+        marker.update();
 
         // this one's needed to update the path
         marker._origLatLng = latlngs[j][i];
