@@ -26,7 +26,7 @@
   "license": "MIT",
   "dependencies": {
     "leaflet-draw": "git+https://github.com/destus90/Leaflet.draw.git",
-    "leaflet-path-drag": "^1.1.0"
+    "leaflet-path-drag": "github:destus90/Leaflet.Path.Drag"
   },
   "devDependencies": {
     "browserify": "^13.1.1",
