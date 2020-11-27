@@ -977,8 +977,9 @@ L.Edit.PolyVerticesEdit.include( /** @lends L.Edit.PolyVerticesEdit.prototype */
    * @param  {L.MouseEvent} evt
    */
   _onStopDragFeature: function(evt) {
-    var polygon = this._poly;
-    var latlngs = polygon._latlngs;
+    // var polygon = this._poly;
+    // var latlngs = polygon._latlngs;
+    var latlngs = this._latlngs;
 
     if (!L.Util.isArray(latlngs[0])) {
       latlngs = [latlngs];
