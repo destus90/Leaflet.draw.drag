@@ -1,5 +1,5 @@
 {
-  "name": "leaflet-draw-drag",
+  "name": "@technocom/leaflet-draw-drag",
   "version": "0.4.5",
   "description": "Drag feature functionality for Leaflet.draw",
   "main": "index.js",
@@ -10,7 +10,10 @@
     "build-js": "cat ./node_modules/leaflet-path-drag/dist/L.Path.Drag-src.js ./src/EditToolbar.Edit.js ./src/Edit.SimpleShape.Drag.js ./src/Edit.Circle.Drag.js ./src/Edit.Rectangle.Drag.js ./src/Edit.Poly.Drag.js > ./dist/Leaflet.draw.drag-src.js",
     "compress": "uglifyjs ./dist/Leaflet.draw.drag-src.js -o ./dist/Leaflet.draw.drag.js -m --comments",
     "build": "npm run lint && npm run build-js && npm run compress",
-    "release": "git push origin master && git checkout gh-pages && git merge master && git push origin gh-pages && git checkout master && npm publish"
+    "release": "npm pack && npm publish && del *.tgz"
+  },
+  "publishConfig": {
+    "registry": "http://tkrepo.technocom.tech/repository/tk-npm/"
   },
   "keywords": [
     "leaflet",
@@ -21,17 +24,22 @@
   "author": "Alexander Milevski <info@w8r.name>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/w8r/Leaflet.draw.drag"
+    "url": "https://gogs.technocom.tech/AppliedSoftware/Leaflet.draw.drag"
+  },
+  "bugs": {
+    "url": "https://gogs.technocom.tech/AppliedSoftware/Leaflet.draw.drag"
   },
   "license": "MIT",
   "dependencies": {
-    "leaflet-path-drag": "github:destus90/Leaflet.Path.Drag"
+    "@technocom/leaflet-path-drag": "^1.1.1"
   },
   "peerDependencies": {
-	"leaflet-draw": "git+https://github.com/destus90/Leaflet.draw.git"
+    "leaflet-draw": "@technocom/leaflet-draw@0.4.10"
   },
   "devDependencies": {
+    "@technocom/leaflet-draw": "^0.4.10",
     "browserify": "^13.1.1",
+    "del-cli": "^3.0.1",
     "eslint": "^3.10.2",
     "leaflet": "^1.2.0",
     "st": "^1.2.0",

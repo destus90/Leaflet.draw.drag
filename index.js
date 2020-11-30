@@ -1,6 +1,6 @@
 var L = require('leaflet');
-require('leaflet-draw');
-require('leaflet-path-drag');
+require('@technocom/leaflet-draw');
+require('@technocom/leaflet-path-drag');
 
 require('./src/EditToolbar.Edit');
 require('./src/Edit.SimpleShape.Drag');
